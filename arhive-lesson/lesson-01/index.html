@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="product">
+        <img src="" alt="" class="product__img">
+        <div class="product__content">
+            <h3 class="product__name"></h3>
+            <p class="product__text"></p>
+        </div>
+    </div>
+
+    <script>
+        const arr = [1, 3, 5, 7, 10];
+        function max(param1, param2, ...rest) {
+            if (param1 > param2) {
+                console.log(param1);
+            } else {
+                console.log(param2);
+            }
+            console.log(rest);
+        }
+        console.log(max(...arr));
+        console.log(Math.max(...arr));
+
+        let count = 0;
+
+        const upCount = () => {
+            let params = 3;
+            return count + params;
+        }
+
+        console.log(upCount());
+        console.log(params);
+
+        //n! = (n - 1)! * n;
+        //4! = 1 * 2 * 3 * 4;
+        //4! = 3! * 4;
+        //3! = 1 * 2 * 3;
+        //2! = 1 * 2;
+
+        function factorial(number) {
+            if (number === 1) {
+                return 1;
+            }
+            return factorial(number - 1) * number;
+        }
+
+        console.log(factorial(3));
+
+        {
+            tag: 'div',
+                class: 'product',
+                {
+                    tag: 'img',
+                    class: 'product__img'
+                    src: 'photo.png'
+                }
+        }        
+    </script>
+</body>
+
+</html>
