@@ -40,9 +40,9 @@ function findElementByClass(el, className) {
         return el;
     }
 
-    for (let i = 0; i < el.children.length; i++) {
+    for (let child of el.children) {
 
-        const foundEl = findElementByClass(el.children[i], className);
+        const foundEl = findElementByClass(child, className);
 
         if (foundEl !== null) return foundEl;
     }
