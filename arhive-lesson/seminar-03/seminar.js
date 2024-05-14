@@ -176,6 +176,9 @@ class Product {
     }
 
     get count() {
+        if (count > Product.MAX_COUNT) {
+            throw new Error(`Превышено максимальное допустимое количество`);
+        }
         return this.#count;
     }
 }
