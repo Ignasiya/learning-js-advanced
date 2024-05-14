@@ -8,9 +8,8 @@
  * Метод displayInfo() - переопределяет метод displayInfo() родительского класса и выводит информацию о менеджере (имя и отдел).
 */
 
-class Employee 
-{
-    constructor (name) {
+class Employee {
+    constructor(name) {
         this.name = name;
     }
 
@@ -19,9 +18,8 @@ class Employee
     }
 }
 
-class Manager extends Employee 
-{
-    constructor (name, department) {
+class Manager extends Employee {
+    constructor(name, department) {
         super(name);
         this.department = department;
     }
@@ -46,25 +44,23 @@ manager.displayInfo();
  * Метод getTotalPrice() - возвращает общую стоимость заказа, основанную на ценах продуктов.
 */
 
-class Product 
-{
+class Product {
     constructor(name, price) {
         this.name = name;
         this.price = price;
     }
 }
 
-class Order 
-{
+class Order {
     constructor(orderNumber, product = []) {
-      this.orderNumber = orderNumber;
-      this.products = product;
+        this.orderNumber = orderNumber;
+        this.products = product;
     }
-  
+
     addProduct(product) {
-      this.products.push(product);
+        this.products.push(product);
     }
-  
+
     getTotalPrice() {
         return this.products.reduce((sum, product) => sum + product.price, 0);
     }
@@ -98,36 +94,46 @@ console.log(order.getTotalPrice());
  * что вы используете приватные поля и статическое поле в соответствии с описанием.
 */
 
-class ZooAnimal
-{
+class ZooAnimal {
     #name;
     #age;
     #gender;
-    static MAX_AGE = 20;
+    static #MAX_AGE = 20;
 
     constructor(name, age, gender) {
         this.#name = name;
+        if (newAge > ZooAnimal.#MAX_AGE) {
+            throw new Error("Превышен максимальный допустимый возраст животного")
+        }
         this.#age = age;
         this.#gender = gender;
     }
 
-    changeName(newName) {
+    set name(newName) {
         this.#name = newName;
     }
-    
-    changeAge(newAge) {
-        if (newAge <= ZooAnimal.MAX_AGE) {
+
+    get name() {
+        return this.#name;
+    }
+
+    set age(newAge) {
+        if (newAge <= ZooAnimal.#MAX_AGE) {
             this.#age = newAge;
         } else {
             throw new Error("Превышен максимальный допустимый возраст животного")
         }
     }
+
+    get age() {
+        return this.#age;
+    }
 }
 
 const cat = new ZooAnimal('Мурка', 5, 'женский');
-console.log(cat);
+console.log(cat.name);
 
-cat.changeName('Киса');
-cat.changeAge(10);
+cat.name = 'Киса';
+cat.age = 10;
 
-cat.changeAge(21);
+cat.age = 21;
