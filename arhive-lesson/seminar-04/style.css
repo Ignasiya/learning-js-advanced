@@ -1,0 +1,31 @@
+.nasa {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-items: center;
+    align-items: center;
+}
+
+figure {
+    border: thin #c0c0c0 solid;
+    display: flex;
+    flex-flow: column;
+    padding: 5px;
+    min-height: 700px;
+    max-width: 360px;
+    margin: auto;
+}
+
+img {
+    max-width: 360px;
+    max-height: 360px;
+    object-fit: cover;
+}
+
+figcaption {
+    background-color: #222;
+    color: #fff;
+    font: italic smaller sans-serif;
+    padding: 3px;
+    text-align: center;
+}
